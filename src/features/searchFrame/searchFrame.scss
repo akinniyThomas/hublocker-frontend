@@ -1,0 +1,96 @@
+$mobile-size: 480px;
+$tablet-size: 800x;
+$laptop-size: 1024px;
+$large-size: 1200px;
+
+.searchFrame{
+    height: 400px;
+    width: 100vw;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .searchBox{
+        position: absolute;
+        left: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+
+        .findLocker{
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            
+            .findLockerText{
+                font-size: 40px;
+            
+                // @media only screen and (max-width: $tablet-size) {
+                //     font-size: 10px;
+
+                //     &:hover{
+                //         color: green;
+                //         cursor: pointer;
+                //     }
+                // }
+            }
+        }
+
+        .findSearchInput{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgba(255, 255, 255, 0.7);
+            width: 50vw;
+
+
+            input{
+                background-color: transparent;
+                height: 60px;
+                padding: 5px 15px;
+                color: black;
+                font-size: 20px;
+                border: none;
+
+                
+                
+            }
+
+            .findLockerButton{
+                background-color: #cc4a2a;
+                margin: 4px 20px;
+                padding:20px 20px 2px 20px;
+                // min-width: 200px;
+
+                // @media screen and (max-width: $tablet-size) {
+                //     color: blue;
+                // }
+
+                a{
+                    color: white;
+                    text-decoration: none;
+
+                    .findLockerButtonTexts{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+
+                        h3{
+                            font-size: 22px;
+                        }
+
+                        h6{
+                            background-color: white;
+                            color:#cc4a2a;
+                            margin: 2px;
+                            font-size: 10px;
+                        }
+                    }
+                
+                }
+            }
+        }
+    }
+}

@@ -2,6 +2,7 @@ import React from 'react';
 // import { Counter } from './features/counter/Counter';
 import './App.css';
 import Header from './features/header/Header';
+import SearchFrame from './features/searchFrame/SearchFrame';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
         {/* <Counter /> */}
         {/* <h1>Welcome To HubLocker!!!</h1> */}
         <Header/>
+        <SearchFrame />
     </div>
   );
 }
