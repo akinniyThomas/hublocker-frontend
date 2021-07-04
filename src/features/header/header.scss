@@ -1,0 +1,80 @@
+.header{
+    background-color: #d7b343;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .left{
+        margin: 15px 50px 10px 20px;
+        // border: solid red 1px;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        flex: 0.65;
+
+        .logo{
+            height: 60px;
+            margin-right: 20px;
+
+            img{
+                object-fit: contain;
+            }
+        }
+
+        .menu{
+            
+            .menulist{
+                list-style: none;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                li>a{
+                    text-decoration: none;
+                    margin-left: 30px;
+                    color: black;
+                    font-weight: 670;
+                }
+            }
+        }
+    }
+
+    .right{
+        display: flex;
+        align-items: center;
+        justify-content: right;
+        flex-direction: row-reverse;
+        margin: 20px;
+        flex: 0.35;
+
+        .billButton{
+            border-radius: 30px;
+            background-color: #abc70f59;
+            padding: 15px;
+            margin: 5px;
+            a{
+                text-decoration: none;
+                color: white;
+                font-weight: 600;
+            }
+        }
+
+        .phoneNumber{
+            margin: 15px;
+            color: black;
+            font-weight: bold;
+        }
+
+        .account{
+            margin: 5px;
+            font-weight: bold;
+
+            a{
+                text-decoration: none;
+                color: black;
+            }
+        }
+
+    }
+}
