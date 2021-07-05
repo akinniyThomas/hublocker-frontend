@@ -3,6 +3,7 @@ import "./content.scss";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import boxImage from "../../assets/sideimage.PNG";
+import Row from "../row/Row";
 
 function Content() {
   const [availableCount, setAvailableCount] = useState(0);
@@ -52,7 +53,11 @@ function Content() {
             </div>
           </div>
           <div className="tableContent">
-            <table></table>
+            <table>
+              <Row />
+              <br />
+              <Row />
+            </table>
           </div>
         </div>
       </div>

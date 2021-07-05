@@ -1,0 +1,23 @@
+@import "../../global.scss";
+
+.row {
+  line-height: 30px;
+  //   line-height-step: 10px;
+  background-color: $backgroundColor;
+  font-weight: 700;
+  margin-bottom: 5px;
+
+  .rentButton {
+    background-color: #60c579;
+    margin: 10px;
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+  }
+
+  td {
+    // border: solid green 1px;
+  }
+}
