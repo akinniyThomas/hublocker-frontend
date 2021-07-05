@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import './App.css';
 import Header from './features/header/Header';
 import SearchFrame from './features/searchFrame/SearchFrame';
+import Content from './features/content/Content';
 import axios from "./axios";
 import { request } from './urlPaths';
 import {setLocations, setLockers} from "./AppSlice";
@@ -29,6 +30,7 @@ function App() {
         {/* <h1>Welcome To HubLocker!!!</h1> */}
         <Header/>
         <SearchFrame />
+        <Content/>
     </div>
   );
 }

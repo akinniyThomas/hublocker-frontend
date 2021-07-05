@@ -7,15 +7,15 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   setLocations,
   setLockers,
-//   setShowingLockers,
+  //   setShowingLockers,
   setShwoingLocations,
 } from "../../AppSlice";
 
 function SearchFrame() {
-    const locations = useSelector(state => state.app.locations);
-    // const lockers = useSelector(state => state.app.lockers);
+  const locations = useSelector((state) => state.app.locations);
+  // const lockers = useSelector(state => state.app.lockers);
 
-    const searchRef = useRef();
+  const searchRef = useRef();
 
   const dispatch = useDispatch();
   const updateTotalList = async () => {
@@ -28,12 +28,13 @@ function SearchFrame() {
   };
 
   const updateList = async (stateOrCity) => {
-      
-      stateOrCity = stateOrCity.current.value.toLowerCase();
-      const selectedLocations = locations.filter(
-          loc => loc.city.toLowerCase().includes(stateOrCity) || loc.state.toLowerCase().includes(stateOrCity)
-      );
-    //   console.log(selectedLocations);
+    stateOrCity = stateOrCity.current.value.toLowerCase();
+    const selectedLocations = locations.filter(
+      (loc) =>
+        loc.city.toLowerCase().includes(stateOrCity) ||
+        loc.state.toLowerCase().includes(stateOrCity)
+    );
+    // console.log(selectedLocations);
     dispatch(setShwoingLocations(selectedLocations));
     await updateTotalList();
   };
@@ -49,9 +50,16 @@ function SearchFrame() {
           <h1 className="findLockerText">Find a Locker</h1>
         </div>
         <div className="findSearchInput">
-          <input type="text" ref={searchRef} placeholder="Enter City or State" />
+          <input
+            type="text"
+            ref={searchRef}
+            placeholder="Enter City or State"
+          />
           {/* <div className="findSearch"> */}
-          <div className="findLockerButton" onClick={() => updateList(searchRef)}>
+          <div
+            className="findLockerButton"
+            onClick={() => updateList(searchRef)}
+          >
             <a href="#">
               <div className="findLockerButtonTexts">
                 <h3>Find Locker</h3>

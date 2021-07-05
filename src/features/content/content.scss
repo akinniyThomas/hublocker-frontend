@@ -1,0 +1,117 @@
+.content {
+  $fontColor: rgba(102, 98, 98, 0.986);
+  $backgroundColor: #f3f3f3;
+  $optionColor: #d1d1d1;
+  $selectedOptionColor: #9c9c9c;
+
+  background-color: green;
+  // rgb(211, 211, 211);
+  .availableLockersSortBy {
+    background-color: $backgroundColor;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    color: $fontColor;
+
+    .availableLockers {
+      font-size: 20px;
+      margin: 10px;
+    }
+
+    .sortBy {
+      margin: 10px 50px;
+
+      select {
+        background-color: transparent;
+        border: none;
+        color: $fontColor;
+
+        option {
+          background-color: $optionColor;
+          color: $fontColor;
+          margin: 0px 10px;
+          font-weight: 600;
+
+          &::selection {
+            color: black;
+            background-color: $fontColor;
+          }
+
+          &::-moz-selection {
+            color: black;
+            background-color: $fontColor;
+          }
+        }
+      }
+    }
+  }
+
+  .display {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    // align-items: center;
+
+    .imageBox {
+      flex: 0.15;
+      padding: 10px;
+      max-width: 200px;
+
+      img {
+        object-fit: contain;
+      }
+
+      h6 {
+        color: #5e92c0;
+      }
+    }
+
+    .topAndTable {
+      flex: 0.85;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: column;
+      padding: 10px;
+
+      .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+
+        .selectBox {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          select {
+            width: 300px;
+            color: black;
+            background-color: rgb(179, 169, 169);
+            border: none;
+            height: 30px;
+
+            option {
+              background-color: $backgroundColor;
+              height: 30px;
+
+              &:first-child,
+              &:last-child {
+                background-color: $fontColor;
+              }
+            }
+          }
+        }
+
+        .view {
+          margin: 20px;
+        }
+      }
+
+      .tableContent {
+      }
+    }
+  }
+}

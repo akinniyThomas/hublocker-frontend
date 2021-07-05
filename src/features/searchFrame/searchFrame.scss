@@ -53,9 +53,10 @@ $large-size: 1200px;
                 color: black;
                 font-size: 20px;
                 border: none;
-
                 
-                
+                &::placeholder{
+                    color: black;
+                }
             }
 
             .findLockerButton{
