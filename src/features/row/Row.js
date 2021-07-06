@@ -16,6 +16,7 @@ function Row({ locker, available }) {
       <td>
         <div className="rentButton">
           <a href="#">Rent Now</a>
+          {console.log(locker)}
         </div>
       </td>
     </tr>

@@ -4,18 +4,59 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import boxImage from "../../assets/sideimage.PNG";
 import Row from "../row/Row";
+import { setLockers, setShowingLockers } from "../../AppSlice";
+import { LockOpenRounded } from "@material-ui/icons";
 
 function Content() {
   const [availableCount, setAvailableCount] = useState(0);
   const [sortedBy, setSortedBy] = useState("Closest");
   const dispatch = useDispatch();
+  const selectedLockers = useSelector((state) => state.app.showingLockers);
 
-  let selectedLocations = useSelector((state) => state.app.showingLocations);
+  const selectedLocations = useSelector((state) => state.app.showingLocations);
+
+  const lockers = useSelector((state) => state.app.lockers);
 
   useEffect(() => {
     console.log(selectedLocations);
     setAvailableCount(selectedLocations.length);
+    console.log(lockers);
+    let selLockers = [];
+    selectedLocations.map((loc) =>
+      lockers
+        .filter((lk) => lk.location.id === loc.id)
+        .map((l) => selLockers.push(l))
+    );
+    const sortedLockers = sortByGroup(selLockers);
+    dispatch(setShowingLockers(sortedLockers));
   }, [selectedLocations]);
+
+  const sortByGroup = (toSortLockers) => {
+    let arr = toSortLockers;
+    let sortedLockers = [];
+    while (arr.length > 0) {
+      const loc = arr[0];
+      const sorted = arr.filter(
+        (l) =>
+          l?.height === loc?.height &&
+          l?.depth === loc?.depth &&
+          l?.width === loc?.width &&
+          l?.isRented === loc?.isRented &&
+          !l?.isRented
+      );
+      //   sortedLockers.map(l=>sortedLockers.push(l))
+      sortedLockers.push([sorted, sorted.length]);
+      arr = arr.filter(
+        (l) =>
+          l?.height !== loc?.height ||
+          l?.depth !== loc?.depth ||
+          l?.width !== loc?.width ||
+          l?.isRented !== loc?.isRented ||
+          l?.isRented
+      );
+    }
+    return sortedLockers;
+  };
   return (
     <div className="content">
       <div className="availableLockersSortBy">
@@ -54,9 +95,9 @@ function Content() {
           </div>
           <div className="tableContent">
             <table>
-              <Row />
-              <br />
-              <Row />
+              {selectedLockers.map((locker) => (
+                <Row locker={locker[0][0]} available={locker.length} />
+              ))}
             </table>
           </div>
         </div>
