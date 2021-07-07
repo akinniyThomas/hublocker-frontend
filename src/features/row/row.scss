@@ -2,14 +2,23 @@
 
 .row {
   line-height: 30px;
-  //   line-height-step: 10px;
   background-color: $backgroundColor;
   font-weight: 700;
   margin-bottom: 5px;
+  padding: 5px;
+
+  &:hover {
+    background-color: $hoverColor;
+  }
+
+  td {
+    padding: 5px;
+  }
 
   .rentButton {
     background-color: #60c579;
     margin: 10px;
+    text-align: center;
 
     a {
       text-decoration: none;

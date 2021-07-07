@@ -6,7 +6,7 @@ function Row({ locker, available }) {
   return (
     <tr className="row">
       <td>
-        H{locker?.height} * W{locker?.width} * D{locker?.depth}
+        H{locker?.height} * W{locker?.width} * D{locker?.depth} mm
       </td>
       <td>
         N{locker?.price} per item/mon N15,000 XX no of orders <br /> Online only

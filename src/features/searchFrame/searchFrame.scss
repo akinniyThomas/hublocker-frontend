@@ -6,7 +6,7 @@ $laptop-size: 1024px;
 $large-size: 1200px;
 
 .searchFrame {
-  height: 400px;
+  height: 300px;
   width: 100vw;
   padding: 20px;
   position: relative;
@@ -22,22 +22,10 @@ $large-size: 1200px;
     justify-content: left;
 
     .findLocker {
-      display: flex;
-      align-items: center;
-      justify-content: left;
-      flex-direction: column;
+      text-align: left;
 
       .findLockerText {
         font-size: 40px;
-
-        // @media only screen and (max-width: $tablet-size) {
-        //     font-size: 10px;
-
-        //     &:hover{
-        //         color: green;
-        //         cursor: pointer;
-        //     }
-        // }
       }
 
       .err {

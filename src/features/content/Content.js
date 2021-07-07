@@ -6,6 +6,7 @@ import boxImage from "../../assets/sideimage.PNG";
 import Row from "../row/Row";
 import { setShowingLockers } from "../../AppSlice";
 import Star from "../stars/Star";
+import AddIcon from "@material-ui/icons/Add";
 
 function Content() {
   const [availableCount, setAvailableCount] = useState(0);
@@ -112,6 +113,14 @@ function Content() {
               ))}
             </table>
           </div>
+          {selectedLocations.length > 0 ? (
+            <div className="bottomView">
+              <AddIcon fontSize="inherit" />
+              <h6>View all lockers at this location</h6>
+            </div>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </div>

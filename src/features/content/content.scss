@@ -19,6 +19,10 @@
     .sortBy {
       margin: 10px 50px;
 
+      label {
+        margin-right: 20px;
+      }
+
       select {
         background-color: transparent;
         border: none;
@@ -56,6 +60,7 @@
       max-width: 200px;
       display: flex;
       flex-direction: column;
+      text-align: left;
 
       img {
         object-fit: contain;
@@ -119,9 +124,24 @@
         // background-color: yellow;
         width: 100%;
         table {
-          border-collapse: collapse;
+          border-collapse: separate;
+          border-spacing: 0px 15px;
           width: 100%;
           padding: 10px;
+          text-align: left;
+        }
+      }
+
+      .bottomView {
+        color: $buttonColor;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        width: 100%;
+        margin-top: 10px;
+
+        h6 {
+          color: $otherFontColor;
         }
       }
     }
