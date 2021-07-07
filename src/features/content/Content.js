@@ -4,13 +4,11 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import boxImage from "../../assets/sideimage.PNG";
 import Row from "../row/Row";
-import { setLockers, setShowingLockers } from "../../AppSlice";
-import { LockOpenRounded } from "@material-ui/icons";
+import { setShowingLockers } from "../../AppSlice";
 import Star from "../stars/Star";
 
 function Content() {
   const [availableCount, setAvailableCount] = useState(0);
-  const [sortedBy, setSortedBy] = useState("Closest");
   const dispatch = useDispatch();
   const selectedLockers = useSelector((state) => state.app.showingLockers);
 

@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
-// import { Counter } from './features/counter/Counter';
 import "./App.css";
 import Header from "./features/header/Header";
-import SearchFrame from "./features/searchFrame/SearchFrame";
-import Content from "./features/content/Content";
 import axios from "./axios";
 import { request } from "./urlPaths";
 import { setLocations, setLockers } from "./AppSlice";
 import { useDispatch } from "react-redux";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Rent from "./features/Rent";
+import Home from "./features/Home";
 
 function App() {
   const dispatch = useDispatch();
@@ -28,13 +28,15 @@ function App() {
     fetchLocationAndLocker();
   }, []);
   return (
-    <div className="App">
-      {/* <Counter /> */}
-      {/* <h1>Welcome To HubLocker!!!</h1> */}
-      <Header />
-      <SearchFrame />
-      <Content />
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <Switch>
+          <Route exact path="/" component={Home}></Route>
+          <Route exact path="/rent" component={Rent}></Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

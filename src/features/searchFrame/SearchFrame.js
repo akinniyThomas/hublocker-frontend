@@ -4,18 +4,12 @@ import "./searchFrame.scss";
 import axios from "../../axios";
 import { request } from "../../urlPaths";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  setLocations,
-  setLockers,
-  //   setShowingLockers,
-  setShwoingLocations,
-} from "../../AppSlice";
+import { setLocations, setLockers, setShwoingLocations } from "../../AppSlice";
 
 function SearchFrame() {
   const [myerror, setMyerror] = useState(false);
 
   const locations = useSelector((state) => state.app.locations);
-  // const lockers = useSelector(state => state.app.lockers);
 
   const searchRef = useRef();
 
@@ -23,7 +17,6 @@ function SearchFrame() {
 
   const changeError = () => {
     const text = searchRef.current.value;
-    // const splitText = text.split(",");
     if (text.includes(",")) {
       const splitText = text.split(",");
       if (
@@ -44,7 +37,6 @@ function SearchFrame() {
     const lockers = await (await axios.get(request.locker)).data.resultObjects;
     dispatch(setLocations(locations));
     dispatch(setLockers(lockers));
-    // console.log(lockers);
   };
 
   const updateList = async (stateOrCity) => {
@@ -59,7 +51,6 @@ function SearchFrame() {
         loc.state.toLowerCase().includes(stateCity[1].trim())
     );
     searchRef.current.value = "";
-    // console.log(selectedLocations);
     dispatch(setShwoingLocations(selectedLocations));
     await updateTotalList();
   };
@@ -69,7 +60,6 @@ function SearchFrame() {
       className="searchFrame"
       style={{ backgroundImage: `url(${searchBackground})` }}
     >
-      {/* <h1>Search Window</h1> */}
       <div className="searchBox">
         <div className="findLocker">
           <h1 className="findLockerText">Find a Locker</h1>
@@ -94,15 +84,8 @@ function SearchFrame() {
           <datalist id="states_cities">
             {locations.map((location) => (
               <option value={`${location?.city}, ${location?.state}`} />
-              // <ListOption
-              //   city={location?.city}
-              //   state={location?.state}
-              //   err={myerror}
-              //   setErr={setMyerror}
-              // />
             ))}
           </datalist>
-          {/* <div className="findSearch"> */}
           <div
             className="findLockerButton"
             onClick={() => updateList(searchRef)}
@@ -114,7 +97,6 @@ function SearchFrame() {
               </div>
             </a>
           </div>
-          {/* </div> */}
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import "./row.scss";
+import { Link } from "react-router-dom";
 
 function Row({ locker, available }) {
   return (
@@ -15,7 +16,7 @@ function Row({ locker, available }) {
       <td>{available} Available</td>
       <td>
         <div className="rentButton">
-          <a href="#">Rent Now</a>
+          <Link to="/rent">Rent Now</Link>
           {console.log(locker)}
         </div>
       </td>
