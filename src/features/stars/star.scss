@@ -1,0 +1,16 @@
+@import "../../global.scss";
+
+.stars {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-left: 5px;
+  //   background-color: yellow;
+  font-size: 30px;
+  .filled {
+    color: $buttonColor;
+  }
+  .unfilled {
+    color: transparent;
+  }
+}

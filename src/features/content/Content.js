@@ -6,6 +6,7 @@ import boxImage from "../../assets/sideimage.PNG";
 import Row from "../row/Row";
 import { setLockers, setShowingLockers } from "../../AppSlice";
 import { LockOpenRounded } from "@material-ui/icons";
+import Star from "../stars/Star";
 
 function Content() {
   const [availableCount, setAvailableCount] = useState(0);
@@ -19,7 +20,7 @@ function Content() {
 
   useEffect(() => {
     console.log(selectedLocations);
-    setAvailableCount(selectedLocations.length);
+    // setAvailableCount(selectedLocations.length);
     console.log(lockers);
     let selLockers = [];
     selectedLocations.map((loc) =>
@@ -34,6 +35,7 @@ function Content() {
   const sortByGroup = (toSortLockers) => {
     let arr = toSortLockers;
     let sortedLockers = [];
+    let count = 0;
     while (arr.length > 0) {
       const loc = arr[0];
       const sorted = arr.filter(
@@ -46,6 +48,7 @@ function Content() {
       );
       //   sortedLockers.map(l=>sortedLockers.push(l))
       sortedLockers.push([sorted, sorted.length]);
+      count += sorted.length;
       arr = arr.filter(
         (l) =>
           l?.height !== loc?.height ||
@@ -55,6 +58,7 @@ function Content() {
           l?.isRented
       );
     }
+    setAvailableCount(count);
     return sortedLockers;
   };
   return (
@@ -74,10 +78,20 @@ function Content() {
 
       <div className="display">
         <div className="imageBox">
-          <img src={boxImage} alt="" />
-          <h6>address of the place</h6>
-          <span>stars here</span>
-          <span>0.3 miles away</span>
+          {selectedLocations.length > 0 ? <img src={boxImage} alt="" /> : ""}
+          {selectedLocations.length > 0 ? (
+            <h6>
+              {selectedLocations[0]?.address}, {selectedLocations[0]?.city},
+              {selectedLocations[0]?.state} State,{" "}
+              {selectedLocations[0]?.country}
+            </h6>
+          ) : (
+            ""
+          )}
+          <div>
+            <Star starsNumber={selectedLocations[0]?.stars} />
+          </div>
+          {selectedLocations.length > 0 ? <h6>0.3 miles away</h6> : ""}
         </div>
         <div className="topAndTable">
           <div className="top">
@@ -96,7 +110,7 @@ function Content() {
           <div className="tableContent">
             <table>
               {selectedLockers.map((locker) => (
-                <Row locker={locker[0][0]} available={locker.length} />
+                <Row locker={locker[0][0]} available={locker[0].length} />
               ))}
             </table>
           </div>

@@ -58,9 +58,10 @@ function SearchFrame() {
         loc.city.toLowerCase().includes(stateCity[0]) &&
         loc.state.toLowerCase().includes(stateCity[1].trim())
     );
+    searchRef.current.value = "";
     // console.log(selectedLocations);
     dispatch(setShwoingLocations(selectedLocations));
-    // await updateTotalList();
+    await updateTotalList();
   };
 
   return (
@@ -74,7 +75,7 @@ function SearchFrame() {
           <h1 className="findLockerText">Find a Locker</h1>
           {myerror ? (
             <span className="err">
-              "The entered city/state combination is invalid
+              The entered city/state combination is invalid
             </span>
           ) : (
             ""

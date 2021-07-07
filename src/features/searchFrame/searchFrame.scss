@@ -1,3 +1,5 @@
+@import "../../global.scss";
+
 $mobile-size: 480px;
 $tablet-size: 800x;
 $laptop-size: 1024px;
@@ -67,7 +69,7 @@ $large-size: 1200px;
       }
 
       .findLockerButton {
-        background-color: #cc4a2a;
+        background-color: $buttonColor;
         margin: 4px 20px;
         padding: 20px 20px 2px 20px;
 
